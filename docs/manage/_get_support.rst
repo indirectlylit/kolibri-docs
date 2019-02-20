@@ -16,7 +16,7 @@ Troubleshoot Network Issues
 	   
 	   ping 192.168.0.104
 
-#. Kolibri may change address every time you reboot your network equipment. Read about :ref:`static IP addresses <ips_static>`
+#. Kolibri may be assigned a new IP address occasionally, such as when hardware is rebooted or if the server leaves and re-joins the network. If this is not desirable, read about :ref:`static IP addresses <ips_static>`
 
 
 .. _firewalls:
@@ -98,17 +98,17 @@ About IP addresses
 Static IP addresses
 -------------------
 
-In order for other clients on your network to find Kolibri on a consistent IP address, this address shouldn't change.
+In order for clients on your network to find Kolibri on a consistent IP address, you'll need to set up a *static IP address*.
 
-The default behavior of an operating system, no matter if it's Linux/Windows/Mac, will be to receive an IP address from a network authority, i.e. a *DHCP server*. DHCP is a service that's typically run on the local access point or router.
+The default behavior of an operating system, no matter if it's Linux/Windows/Mac, will be to receive a *dynamic IP address* from a network authority. This authority is the *DHCP server*, which is a service that's typically run on the local access point or router.
 
-Therefor, you should be cautious that when such a router or access point restarts (for instance during a power cut), it may forget the IP address assigned to your Kolibri device, and thus the IP changes.
-
-To fix this, you have two general options:
+To create a static IP address for Kolibri, you have two general options:
 
 #. Find out how to log in and configure your access point or router, such that it assigns the same IP address consistently to your Kolibri device.
 
-   .. tip:: Any network interface, both a WIFI and a cabled ethernet, has a *MAC* address that's consistent. You can use this *MAC* address by configuring your router or access point to assign the same IP address every time.
+   .. tip:: The device that Kolibri is running on has a *MAC address* that stays consistent when it requests an IP address from the *DHCP server* on your router. You can configure your router or access point to assign the same IP address every time it sees your device's *MAC address*.
+
+   .. tip:: If your router does not support assigning static IP addresses, it is sometimes possible to install third-party firmware on it such as DD-WRT, Tomato, or OpenWRT. Caution: it is possible to completely break your router if something goes wrong!
 
 #. Configure your Kolibri device to use a static IP address: Instead of asking a DHCP server for an IP address, your device can choose one itself.
 
